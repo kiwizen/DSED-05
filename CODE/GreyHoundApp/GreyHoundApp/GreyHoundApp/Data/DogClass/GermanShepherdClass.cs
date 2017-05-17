@@ -8,11 +8,11 @@ namespace GreyHoundApp.Data.DogClass
     {
         public GermanShepherdClass()
         {
-            breed_Type = DogGeneratorClass.GERMAN_SHEPHARD;
-            breed = "German Shepherd";
-            origin = "Germany";
-            size = M_TYPE;
-            steps = 5;
+            Breed_Type = DogGeneratorClass.GERMAN_SHEPHARD;
+            Breed = "German Shepherd";
+            Origin = "Germany";
+            Size = M_TYPE;
+            Steps = 5;
         }
     }
 }

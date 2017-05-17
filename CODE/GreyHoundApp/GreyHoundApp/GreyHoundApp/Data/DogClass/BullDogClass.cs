@@ -8,11 +8,11 @@ namespace GreyHoundApp.Data.DogClass
     {
         public BullDogClass()
         {
-            breed_Type = DogGeneratorClass.BULLDOG;
-            breed = "Bulldog";
-            origin = "United Kingdom";
-            size = M_TYPE;
-            steps = 4;
+            Breed_Type = DogGeneratorClass.BULLDOG;
+            Breed = "Bulldog";
+            Origin = "United Kingdom";
+            Size = M_TYPE;
+            Steps = 4;
         }
     }
 }

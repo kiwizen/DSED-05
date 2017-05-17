@@ -8,11 +8,11 @@ namespace GreyHoundApp.Data.DogClass
     {
         public BeagleClass()
         {
-            breed_Type = DogGeneratorClass.BEAGLE;
-            breed = "Beagle";
-            origin = "United Kingdom";
-            size = S_TYPE;
-            steps = 3;
+            Breed_Type = DogGeneratorClass.BEAGLE;
+            Breed = "Beagle";
+            Origin = "United Kingdom";
+            Size = S_TYPE;
+            Steps = 3;
         }
     }
 }

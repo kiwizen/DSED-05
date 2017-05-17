@@ -35,19 +35,19 @@ namespace GreyHoundApp.Data.DogClass
         /// <summary>
         /// dog's breed type
         /// </summary>
-        public string breed { get; protected set; } = string.Empty;
-        public int breed_Type = -1;
+        public string Breed { get; protected set; } = string.Empty;
+        public int Breed_Type = -1;
         /// <summary>
         /// number of steps the dog move each time
         /// </summary>
-        public int steps { get; protected set; } = 0;
+        public int Steps { get; protected set; } = 0;
         /// <summary>
         /// country origin of the dog
         /// </summary>
-        public string origin { get; protected set; } = string.Empty;
+        public string Origin { get; protected set; } = string.Empty;
         /// <summary>
         /// dog's size, whethe is Small, Medium, Large, Giant
         /// </summary>
-        public char size { get; protected set; } = NOT_DEFINED_TYPE;
+        public char Size { get; protected set; } = NOT_DEFINED_TYPE;
     }
 }

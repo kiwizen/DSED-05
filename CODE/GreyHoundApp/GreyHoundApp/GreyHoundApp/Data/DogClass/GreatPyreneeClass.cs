@@ -8,11 +8,11 @@ namespace GreyHoundApp.Data.DogClass
     {
         public GreatPyreneeClass()
         {
-            breed_Type = DogGeneratorClass.GREAT_PYTENEES;
-            breed = "Great Pyrenees";
-            origin = "France, Spain";
-            size = G_TYPE;
-            steps = 6;
+            Breed_Type = DogGeneratorClass.GREAT_PYTENEES;
+            Breed = "Great Pyrenees";
+            Origin = "France, Spain";
+            Size = G_TYPE;
+            Steps = 6;
         }
     }
 }
