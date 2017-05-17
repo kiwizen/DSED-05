@@ -14,6 +14,6 @@ namespace GreyHoundApp.Data.PunterClass
         /// generate an unique ID for the punter object.
         /// </summary>
         /// <returns>return an integer</returns>
-        public static int GenerateID() { return _counter++; }
+        public static int GenerateID() { return ++_counter; }
     }
 }

@@ -18,7 +18,7 @@ namespace GreyHoundApp.Data.DogClass
         /// generate an unique ID for the dog object.
         /// </summary>
         /// <returns>return an integer</returns>
-        public static int GenerateID() { return _counter++; }
+        public static int GenerateID() { return ++_counter; }
         /// <summary>
         /// randam number generator
         /// </summary>

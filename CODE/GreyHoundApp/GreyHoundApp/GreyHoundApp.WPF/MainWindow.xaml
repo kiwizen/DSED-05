@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreyHoundApp.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="DSED Assignment 5 : GreyHound Game" Height="350" Width="525">
+    <Canvas x:Name="myCanvas">
+        <Image x:Name="RaceTrack"  Canvas.Left="0" Source="racetrack.png" Canvas.Top="0" Stretch="Fill" Width="492" />
+        <Button x:Name="RaceButton"  Content="Start" Height="54" Canvas.Left="228" Canvas.Top="255" Width="112" Click="RaceButton_Click"/>
+    </Canvas>
 </Window>
