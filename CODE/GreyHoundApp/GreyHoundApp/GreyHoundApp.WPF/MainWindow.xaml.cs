@@ -1,4 +1,5 @@
 ﻿using GreyHoundApp.Data.DogClass;
+using GreyHoundApp.Data.PunterClass;
 using GreyHoundApp.WPF.Model;
 using System;
 using System.Collections.Generic;
@@ -31,10 +32,43 @@ namespace GreyHoundApp.WPF
         {
             InitializeComponent();
 
+            ClearLabel();
+
             InitializeTimer();
 
-            DogBaseClass dog;
-            dog = DogGeneratorClass.FactoryMethod(DogGeneratorClass.BEAGLE, "Be");
+            CreateDogModel();
+
+            CreatePunterObject();
+
+            InitializeDogModelPosition();
+
+            for( int i =0; i < myListOfDogs.Count; i++)
+            {
+                ComboBoxDogList.Items.Add($"Dog {i+1}");
+            }
+        }
+
+        private void CreatePunterObject()
+        {
+            List<PunterBaseClass> items = new List<PunterBaseClass>();
+            items.Add(PunterGeneratorClass.FactoryMethod(PunterGeneratorClass.JOE_CLASS));
+            items.Add(PunterGeneratorClass.FactoryMethod(PunterGeneratorClass.BOB_CLASS));
+            items.Add(PunterGeneratorClass.FactoryMethod(PunterGeneratorClass.AI_CLASS));
+            PunterList.ItemsSource = items;
+        }
+
+        private void ClearLabel()
+        {
+            LabelPunterName.Content = string.Empty;
+            LabelAmount.Content = string.Empty;
+            LabelBet.Content = string.Empty;
+
+            ComboBoxDogList.SelectedIndex = -1;
+        }
+
+        private void CreateDogModel()
+        {
+            DogBaseClass dog = DogGeneratorClass.FactoryMethod(DogGeneratorClass.BEAGLE, "Be");
             CreateDogModel(3, 7, dog);
 
             dog = DogGeneratorClass.FactoryMethod(DogGeneratorClass.BULLDOG, "Bull");
@@ -46,9 +80,8 @@ namespace GreyHoundApp.WPF
 
             dog = DogGeneratorClass.FactoryMethod(DogGeneratorClass.GREAT_PYTENEES, "BIG");
             CreateDogModel(130, 7, dog);
-
-            InitializeDogModelPosition();
         }
+
         /// <summary>
         /// Initialize the timer control
         /// </summary>
@@ -77,13 +110,11 @@ namespace GreyHoundApp.WPF
 
         private void InitializeDogModelPosition()
         {
-            //throw new NotImplementedException();
-
-            foreach (DogModelClass model in myListOfDogs)
-            {
+             foreach (DogModelClass model in myListOfDogs)
+             {
                 Canvas.SetTop(model.image, model.Top);
                 Canvas.SetLeft(model.image, model.Left);
-            }
+             }
 
             winflag = false;
         }
@@ -107,8 +138,10 @@ namespace GreyHoundApp.WPF
                 if (!winflag)
                 {
                     MessageBox.Show($"Dog {id} has won!!!");
+                    CheckForWinner(id);
                     winflag = true;
                     InitializeDogModelPosition();
+                    PunterList.Items.Refresh();
                 }
             }
             else
@@ -119,10 +152,71 @@ namespace GreyHoundApp.WPF
             }
         }
 
-        private void RaceButton_Click(object sender, RoutedEventArgs e)
+        private void CheckForWinner(int winer_id)
+        {
+            foreach(dynamic punter in PunterList.Items)
+            {
+                if(punter.DogID != PunterBaseClass.NO_DOG_SELECTED)
+                {
+                    if (punter.DogID == winer_id)
+                        punter.WinGame();
+                    else
+                        punter.LoseGame();
+                }
+            }
+        }
+
+        private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             //InitializeDogModelPosition();
             timer.Start();
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void PunterList_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (PunterList.SelectedIndex < 0) return;
+
+            int i = PunterList.SelectedIndex;
+            dynamic item = PunterList.Items[i];
+            LabelPunterName.Content = item.Name;
+            LabelAmount.Content = item.Amount;
+            LabelBet.Content = 0;
+            BetSlider.Maximum = item.Amount;
+            BetSlider.Value = item.Bet;
+
+            if (item.DogID == PunterBaseClass.NO_DOG_SELECTED)
+                ComboBoxDogList.SelectedIndex = PunterBaseClass.NO_DOG_SELECTED;
+            else
+                ComboBoxDogList.SelectedIndex = item.DogID-1;
+
+        }
+
+        private void BetSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            LabelBet.Content = BetSlider.Value;
+        }
+
+        private void BetButton_Click(object sender, RoutedEventArgs e)
+        {
+            int i = PunterList.SelectedIndex;
+            dynamic item = PunterList.Items[i];
+
+            if (ComboBoxDogList.SelectedIndex < 0)
+            {
+                item.DogID = PunterBaseClass.NO_DOG_SELECTED;
+                item.Bet = 0;
+                return;
+            }
+
+            item.DogID = ComboBoxDogList.SelectedIndex + 1;
+            item.Bet = Convert.ToInt32(BetSlider.Value);
+
+            ClearLabel();
         }
     }
 }

@@ -26,12 +26,16 @@ namespace GreyHoundApp.Data.PunterClass
             return PunterGeneratorClass.GenerateID();
         }
 
-        public const int NOT_BETTING = -1;
+        public const int NOT_BETTING = 0;
         public const int NO_DOG_SELECTED = -1;
         /// <summary>
         /// The amount the punter have on hand
         /// </summary>
-        public float Amount = 100;
+        public int Amount { get; set; } = 100;
+        /// <summary>
+        /// Age of the punter
+        /// </summary>
+        public int Age { get; set; } = 0;
         /// <summary>
         /// check whether the punter has no more money left ==> BUSTED !!
         /// </summary>
@@ -44,5 +48,19 @@ namespace GreyHoundApp.Data.PunterClass
         /// The ID of the dog that punter has placed bet on
         /// </summary>
         public int DogID = NO_DOG_SELECTED;
+        public void WinGame()
+        {
+            Amount += Bet;
+            ResetBet();
+        }
+        public void LoseGame()
+        {
+            Amount -= Bet;
+            ResetBet();
+        }
+        public void ResetBet()
+        {
+            Bet = NOT_BETTING;
+        }
     }
 }

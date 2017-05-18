@@ -9,6 +9,7 @@ namespace GreyHoundApp.Data.PunterClass
         public BobClass()
         {
             Name = "Bob";
+            Age = 45;
             Amount = 75;
         }
     }

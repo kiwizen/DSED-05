@@ -9,6 +9,7 @@ namespace GreyHoundApp.Data.PunterClass
         public ComputerClass()
         {
             Name = "AI";
+            Age = 2017;
             Amount = 25;
         }
     }

@@ -24,3 +24,4 @@ C:\Users\kiwizen\Desktop\DSED-05\CODE\GreyHoundApp\GreyHoundApp\GreyHoundApp.WPF
 C:\Users\kiwizen\Desktop\DSED-05\CODE\GreyHoundApp\GreyHoundApp\GreyHoundApp.WPF\obj\Debug\GreyHoundApp.WPF.csproj.GenerateResource.Cache
 C:\Users\kiwizen\Desktop\DSED-05\CODE\GreyHoundApp\GreyHoundApp\GreyHoundApp.WPF\obj\Debug\GreyHoundApp.WPF.exe
 C:\Users\kiwizen\Desktop\DSED-05\CODE\GreyHoundApp\GreyHoundApp\GreyHoundApp.WPF\obj\Debug\GreyHoundApp.WPF.pdb
+C:\Users\kiwizen\Desktop\DSED-05\CODE\GreyHoundApp\GreyHoundApp\GreyHoundApp.WPF\obj\Debug\GreyHoundApp.WPF.csprojResolveAssemblyReference.cache

@@ -47,7 +47,7 @@ namespace GreyHoundApp.Data.DogClass
                     dog = new GreatPyreneeClass();
                     break;
                 default:
-                    throw new Exception("No Dog Class Defined");
+                    throw new Exception("No Dog Class Defined!");
             }
             dog.Name = name;
             return dog;
