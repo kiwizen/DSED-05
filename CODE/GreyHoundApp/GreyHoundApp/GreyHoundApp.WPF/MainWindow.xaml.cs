@@ -133,7 +133,6 @@ namespace GreyHoundApp.WPF
 
             if (dogPos >= RaceTrack.Width - image.Width) //800 is the width of the panel
             {
-                //Canvas.SetLeft(dog1, 12);
                 timer.Stop();
                 if (!winflag)
                 {
