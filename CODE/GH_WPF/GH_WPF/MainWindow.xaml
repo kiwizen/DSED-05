@@ -23,14 +23,25 @@
             <BeginStoryboard Storyboard="{StaticResource Bouncing_Object}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Canvas x:Name="GameCanvas"  Margin="0,0,94,242">
+    <Canvas x:Name="GameCanvas"  Margin="0,0,2,242">
         <Image x:Name="imagebackground" Canvas.Left="0" Canvas.Top="0"   
                Source="image/background.jpg" Stretch="Fill"
                Width="{Binding ActualWidth, ElementName=GameCanvas}"
                Height="{Binding ActualHeight, ElementName=GameCanvas}"/>
 
-        <Image x:Name="image1"  Height="62" Canvas.Left="0" Canvas.Top="223" Width="71" 
+        <Image x:Name="image1"  Height="62" Canvas.Left="0" Canvas.Top="94" Width="71" 
                Source="image/small_pig_01.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="image2"  Height="62" Canvas.Left="0" Canvas.Top="168" Width="71" 
+            Source="image/medium_pig_01.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
