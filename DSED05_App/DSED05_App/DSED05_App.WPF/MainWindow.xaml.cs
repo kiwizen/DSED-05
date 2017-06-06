@@ -235,13 +235,16 @@ namespace DSED05_App.WPF
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             timer.Start();
+
+            // Clear field
+            ResetField();
         }
 
         private void BettingButton_Click(object sender, RoutedEventArgs e)
         {
             if (SelectedRacerName.Content.ToString() != string.Empty)
             {
-                
+
                 if (PunterListView.SelectedIndex > -1)
                 {
                     dynamic Content = PunterListView.SelectedItem;
@@ -256,6 +259,11 @@ namespace DSED05_App.WPF
                     }
                 }
             }
+            ResetField();
+        }
+
+        private void ResetField()
+        {
             SelectedRacer.Source = null;
             SelectedRacerName.Content = string.Empty;
             MoneyLabel.Content = string.Empty;
