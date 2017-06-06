@@ -235,7 +235,6 @@ namespace DSED05_App.WPF
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             timer.Start();
-
             // Clear field
             ResetField();
         }
